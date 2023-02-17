@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="751.0" prefWidth="922.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddProductFormController">
+   <children>
+      <HBox alignment="BOTTOM_LEFT" layoutX="7.0" prefHeight="80.0" prefWidth="903.0">
+         <children>
+            <Label text="Add Product" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Black" size="22.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
+            </Label>
+         </children>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </HBox>
+      <Pane fx:id="PartsPane" layoutY="59.0" prefHeight="390.0" prefWidth="456.0">
+         <children>
+            <VBox layoutY="101.0" prefHeight="447.0" prefWidth="456.0">
+               <children>
+                  <GridPane vgap="10.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="181.0" minWidth="10.0" prefWidth="108.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="279.0" minWidth="10.0" prefWidth="133.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="279.0" minWidth="10.0" prefWidth="80.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="293.0" minWidth="10.0" prefWidth="111.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="28.0" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="28.0" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label text="ID" />
+                        <Label text="Name" GridPane.rowIndex="1" />
+                        <Label text="Inv" GridPane.rowIndex="2" />
+                        <Label text="Price" GridPane.rowIndex="3" />
+                        <Label text="Max" GridPane.rowIndex="4" />
+                        <TextField fx:id="APIdTxtFld" editable="false" opacity="0.28" prefWidth="191.0" text="Auto Gen - Disabled" GridPane.columnIndex="1" />
+                        <TextField fx:id="APNameTxt" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="APInvTxt" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="APPriceTxt" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="APMaxTxt" prefHeight="26.0" prefWidth="126.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label text="Min" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets left="20.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField fx:id="APMinTxt" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                     </children>
+                  </GridPane>
+               </children>
+               <padding>
+                  <Insets left="15.0" right="20.0" top="20.0" />
+               </padding>
+            </VBox>
+         </children>
+      </Pane>
+      <Pane layoutX="449.0" layoutY="61.0" prefHeight="314.0" prefWidth="469.0">
+         <children>
+            <VBox layoutY="-48.0" prefHeight="367.0" prefWidth="469.0">
+               <children>
+                  <HBox alignment="BOTTOM_RIGHT" prefHeight="37.0" prefWidth="434.0">
+                     <children>
+                        <TextField fx:id="APSearchBar" onAction="#APsearch" opacity="0.35" prefHeight="27.0" prefWidth="203.0" promptText="Search by Part ID or Name">
+                           <font>
+                              <Font name="Arial" size="13.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets bottom="10.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <TableView fx:id="APDataTbl" prefHeight="241.0" prefWidth="434.0">
+                     <columns>
+                        <TableColumn fx:id="APpartDataPartId" prefWidth="68.0" text="Part ID" />
+                        <TableColumn fx:id="APpartDataPartName" prefWidth="141.0" text="Part Name" />
+                        <TableColumn fx:id="APpartDataInvLevel" prefWidth="103.0" text="Inventory Level" />
+                        <TableColumn fx:id="APpartDataPrice" prefWidth="124.0" text="Price/Cost per Unit" />
+                     </columns>
+                  </TableView>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="57.0" prefWidth="434.0" spacing="10.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#onActionAPAdd" text="Add">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets left="15.0" right="20.0" top="20.0" />
+               </padding>
+            </VBox>
+         </children>
+      </Pane>
+      <Pane layoutX="453.0" layoutY="369.0" prefHeight="314.0" prefWidth="469.0">
+         <children>
+            <VBox prefHeight="367.0" prefWidth="469.0">
+               <children>
+                  <TableView fx:id="APAssociatedTbl" prefHeight="241.0" prefWidth="434.0">
+                     <columns>
+                        <TableColumn fx:id="APAssociatedPartId" prefWidth="68.0" text="Part ID" />
+                        <TableColumn fx:id="APAssociatedPartName" prefWidth="141.0" text="Part Name" />
+                        <TableColumn fx:id="APAssociatedInvLevel" prefWidth="103.0" text="Inventory Level" />
+                        <TableColumn fx:id="APAssociatedPrice" prefWidth="124.0" text="Price/Cost per Unit" />
+                     </columns>
+                  </TableView>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="57.0" prefWidth="434.0" spacing="10.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#onActionRemoveAPAssociatedPart" text="Remove Associated Part">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets left="15.0" right="20.0" top="20.0" />
+               </padding>
+            </VBox>
+         </children>
+      </Pane>
+      <HBox alignment="CENTER_RIGHT" layoutX="3.0" layoutY="679.0" prefHeight="46.0" prefWidth="917.0" spacing="62.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#onActionSaveAP" text="Save">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#onActionMainMenu" text="Cancel">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+         </children>
+         <padding>
+            <Insets right="18.0" />
+         </padding>
+      </HBox>
+   </children>
+</AnchorPane>
